@@ -13,3 +13,12 @@ class Order:
             total += product.price 
 
         return total
+
+    def confirm(self):
+        if not self.__products:
+            raise ValueError("El pedido no puede estar vacío, agrega por lo menos 1 producto.")
+
+        if self.__state == "CONFIRMED":
+            raise ValueError("El pedido ya ha sido confirmado")
+
+        self.__state = "CONFIRMED"
