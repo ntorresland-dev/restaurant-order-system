@@ -5,3 +5,6 @@ class Product:
         self.__price = price
 
 
+    @property
+    def price(self):
+        return self.__price
