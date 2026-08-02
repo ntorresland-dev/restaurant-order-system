@@ -31,3 +31,13 @@ class Order:
             raise ValueError("El pedido ya ha sido cancelado.")
 
         self.__state = "CANCELLED"
+
+    def __str__(self):
+        products = "\n".join(f"- {product}" for product in self.__products)
+
+        return ("Pedido\n"
+                "Productos:\n"
+                f"{products}\n"
+                f"Precio Total: {self.get_total_price()}\n"
+                f"Estado del pedido: {self.__state}"
+        )

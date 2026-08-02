@@ -14,5 +14,5 @@ completo = menu.get_product("completo")
 order.add_product(completo)
 papas_fritas = menu.get_product("papas fritas")
 order.add_product(papas_fritas)
-print("productos agregados")
-print(order.get_total_price())
+
+print(order)

@@ -12,3 +12,6 @@ class Product:
     @property
     def price(self):
         return self.__price
+
+    def __str__(self):
+        return f"{self.name} - ${self.price}"
