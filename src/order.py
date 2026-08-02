@@ -19,6 +19,15 @@ class Order:
             raise ValueError("El pedido no puede estar vacío, agrega por lo menos 1 producto.")
 
         if self.__state == "CONFIRMED":
-            raise ValueError("El pedido ya ha sido confirmado")
+            raise ValueError("El pedido ya ha sido confirmado.")
 
         self.__state = "CONFIRMED"
+
+    def cancel(self):
+        if self.__state == "CONFIRMED":
+            raise ValueError("El pedido ya ha sido confirmado.")
+
+        if self.__state == "CANCELLED":
+            raise ValueError("El pedido ya ha sido cancelado.")
+
+        self.__state = "CANCELLED"
