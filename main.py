@@ -1,16 +1,18 @@
 from src.order import Order
 from src.product import Product
+from src.menu import Menu
 
 
-product1 = Product("Pizza", 2500)
-product2 = Product("Bebida", 1100)
-product3 = Product("Papas fritas", 2100)
+products = [Product("completo", 2000),
+            Product("papas fritas", 1300),
+            Product("bebida", 990)]
 
+menu = Menu(products)
 order = Order()
 
-order.add_product(product1)
-order.add_product(product2)
-order.add_product(product3)
-
-total_price = order.get_total_price()
-print(total_price)
+completo = menu.get_product("completo")
+order.add_product(completo)
+papas_fritas = menu.get_product("papas fritas")
+order.add_product(papas_fritas)
+print("productos agregados")
+print(order.get_total_price())
