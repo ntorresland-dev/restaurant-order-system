@@ -6,5 +6,9 @@ class Product:
 
 
     @property
+    def name(self):
+        return self.__name
+
+    @property
     def price(self):
         return self.__price
