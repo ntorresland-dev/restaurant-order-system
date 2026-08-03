@@ -1,43 +1,43 @@
 # Restaurant Order System
 
-## Descripción
+## Description
 
-Restaurant Order System es una aplicación de consola desarrollada en Python que simula la gestión de pedidos de un local de comida.
+Restaurant Order System is a Python console application that simulates the order management process of a small restaurant.
 
-El proyecto fue desarrollado con un enfoque incremental para practicar Programación Orientada a Objetos (POO) y un flujo de trabajo similar al utilizado en equipos de desarrollo profesionales.
+The project was developed using an incremental approach to practice Object-Oriented Programming (OOP) while following a workflow similar to that of a professional software development team.
 
-Su alcance está limitado a una aplicación en memoria, sin persistencia de datos, permitiendo concentrarse en el diseño del dominio, la colaboración entre objetos y las buenas prácticas de desarrollo.
-
----
-
-## Objetivos del proyecto
-
-* Practicar Programación Orientada a Objetos en Python.
-* Aplicar principios de encapsulamiento y responsabilidad única.
-* Diseñar un dominio simple antes de implementar funcionalidades.
-* Simular un flujo de trabajo profesional utilizando Git y GitHub.
-* Desarrollar funcionalidades mediante pequeños incrementos revisados como Pull Requests.
+The application intentionally stores all data in memory without persistence, allowing the focus to remain on domain modeling, object collaboration, and software design principles.
 
 ---
 
-## Funcionalidades
+## Project Goals
 
-Actualmente el sistema permite:
-
-* Crear productos.
-* Administrar un menú de productos.
-* Crear pedidos.
-* Agregar productos a un pedido.
-* Calcular el precio total.
-* Confirmar pedidos.
-* Cancelar pedidos.
-* Consultar un pedido por su identificador.
-* Administrar múltiples pedidos mediante `OrderManager`.
-* Mostrar el detalle completo de un pedido.
+* Practice Object-Oriented Programming in Python.
+* Apply encapsulation and the Single Responsibility Principle.
+* Design the domain before implementing features.
+* Simulate a professional Git and GitHub workflow.
+* Develop features through small, incremental changes reviewed as Pull Requests.
 
 ---
 
-## Estructura del proyecto
+## Features
+
+The current version allows you to:
+
+* Create products.
+* Manage a product menu.
+* Create orders.
+* Add products to an order.
+* Calculate the total price of an order.
+* Confirm orders.
+* Cancel orders.
+* Search for an order by its identifier.
+* Manage multiple orders through `OrderManager`.
+* Display detailed order information.
+
+---
+
+## Project Structure
 
 ```text
 .
@@ -53,36 +53,36 @@ Actualmente el sistema permite:
 
 ---
 
-## Conceptos aplicados
+## Concepts Applied
 
-Durante el desarrollo se practicaron los siguientes conceptos:
+This project was built while practicing the following concepts:
 
-* Programación Orientada a Objetos.
-* Encapsulamiento.
-* Responsabilidad Única (SRP).
-* Agregación entre objetos.
-* Variables de instancia y de clase.
-* Propiedades (`@property`).
-* Métodos especiales (`__str__`).
-* Validaciones mediante excepciones.
-* Refactorización orientada al dominio.
-* Diseño incremental basado en reglas de negocio.
+* Object-Oriented Programming
+* Encapsulation
+* Single Responsibility Principle (SRP)
+* Object Aggregation
+* Instance and Class Attributes
+* Properties (`@property`)
+* Special Methods (`__str__`)
+* Exception Handling
+* Domain-Driven Refactoring
+* Incremental Software Design
 
 ---
 
-## Tecnologías
+## Technologies
 
 * Python 3
 * Git
 * GitHub
 
-No se utilizan frameworks ni librerías externas.
+No external frameworks or third-party libraries were used.
 
 ---
 
-## Cómo ejecutar
+## Running the Project
 
-Desde la raíz del proyecto:
+From the project root directory:
 
 ```bash
 python3 main.py
@@ -90,36 +90,38 @@ python3 main.py
 
 ---
 
-## Flujo de desarrollo
+## Development Workflow
 
-El proyecto fue construido mediante pequeños incrementos.
+The project was developed through small incremental iterations.
 
-Cada funcionalidad fue desarrollada siguiendo un flujo similar al utilizado en equipos profesionales:
+Each feature followed a workflow similar to a professional development process:
 
-1. Análisis del requerimiento.
-2. Definición del alcance.
-3. Diseño de la solución.
-4. Implementación.
-5. Revisión del código.
-6. Refactorización cuando fue necesaria.
-7. Integración en la rama principal.
-
----
-
-## Aprendizajes
-
-Este proyecto permitió fortalecer habilidades en:
-
-* Análisis de requerimientos.
-* Diseño orientado a objetos.
-* Modelado de entidades del dominio.
-* Definición de responsabilidades.
-* Evolución incremental de un proyecto.
-* Uso de Git mediante ramas, commits y revisiones de código.
-* Refactorización sin modificar el comportamiento del sistema.
+1. Analyze the requirement.
+2. Define the scope.
+3. Design the solution.
+4. Implement the feature.
+5. Perform a code review.
+6. Refactor when necessary.
+7. Merge into the main branch.
 
 ---
 
-## Estado del proyecto
+## What I Learned
 
-Versión candidata a **v1.0.0**.
+This project helped strengthen my understanding of:
+
+* Requirements analysis.
+* Object-oriented design.
+* Domain modeling.
+* Defining class responsibilities.
+* Incremental software development.
+* Git workflows using branches, commits, and code reviews.
+* Refactoring without changing system behavior.
+
+---
+
+## Project Status
+
+**Version 1.0.0**
+
+This project is considered complete within its original scope and serves as a learning project focused on Object-Oriented Programming and software design.
