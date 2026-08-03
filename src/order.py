@@ -1,7 +1,16 @@
 class Order:
+
+    _order_counter = 0
+
     def __init__(self):
+        Order._order_counter += 1
+        self.__id = Order._order_counter
         self.__products = []
         self.__state = "PENDING"
+
+    @property
+    def id(self):
+        return self.__id
 
     def add_product(self, product):
         self.__validate_modification()
@@ -39,7 +48,7 @@ class Order:
     def __str__(self):
         products = "\n".join(f"- {product}" for product in self.__products)
 
-        return ("Pedido\n"
+        return (f"Pedido #{self.__id}\n"
                 "Productos:\n"
                 f"{products}\n"
                 f"Precio Total: ${self.get_total_price()}\n"
