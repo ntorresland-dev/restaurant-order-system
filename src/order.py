@@ -4,6 +4,8 @@ class Order:
         self.__state = "PENDING"
 
     def add_product(self, product):
+        self.__validate_modification()
+
         self.__products.append(product)
 
     def get_total_price(self):
@@ -15,22 +17,24 @@ class Order:
         return total
 
     def confirm(self):
+        self.__validate_modification()
+
         if not self.__products:
             raise ValueError("El pedido no puede estar vacío, agrega por lo menos 1 producto.")
-
-        if self.__state == "CONFIRMED":
-            raise ValueError("El pedido ya ha sido confirmado.")
 
         self.__state = "CONFIRMED"
 
     def cancel(self):
-        if self.__state == "CONFIRMED":
-            raise ValueError("El pedido ya ha sido confirmado.")
+        self.__validate_modification()
 
         if self.__state == "CANCELLED":
             raise ValueError("El pedido ya ha sido cancelado.")
 
         self.__state = "CANCELLED"
+
+    def __validate_modification(self):
+        if self.__state == "CONFIRMED":
+            raise ValueError("El pedido ya ha sido confirmado.")
 
     def __str__(self):
         products = "\n".join(f"- {product}" for product in self.__products)
