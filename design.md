@@ -1,101 +1,101 @@
 # Design Decisions
 
-## Objetivo del proyecto
+## Project Objective
 
-El objetivo de este proyecto fue resolver un caso ficticio de gestión de pedidos para un local de comida, con el propósito de reducir errores logísticos y financieros durante el proceso de atención.
+The objective of this project was to solve a fictional restaurant order management problem aimed at reducing operational and financial errors during the ordering process.
 
-La solución consiste en una aplicación de consola (CLI) desarrollada en Python, que permite administrar pedidos completamente en memoria, sin utilizar persistencia de datos. Esto permitió enfocar el desarrollo en el diseño del dominio, la Programación Orientada a Objetos y las buenas prácticas de ingeniería de software.
+The solution is a command-line application (CLI) written in Python that manages orders entirely in memory without using data persistence. This allowed the project to focus on domain modeling, Object-Oriented Programming, and software engineering best practices.
 
 ---
 
-## Modelo del dominio
+## Domain Model
 
-El dominio del sistema está compuesto por las siguientes entidades:
+The system is composed of the following domain entities:
 
 * **Product**
 * **Menu**
 * **Order**
 * **OrderManager**
 
-Cada una posee una responsabilidad claramente definida para mantener un diseño simple, desacoplado y fácil de mantener.
+Each entity has a single, well-defined responsibility to keep the design simple, maintainable, and easy to extend.
 
 ---
 
-## Responsabilidades
+## Responsibilities
 
 ### Product
 
-Representa un producto disponible en el menú del restaurante.
+Represents a product available on the restaurant menu.
 
-Cada producto posee un nombre y un precio, y es responsable de exponer únicamente la información necesaria mediante propiedades de solo lectura.
+Each product stores its name and price and exposes them through read-only properties.
 
 ---
 
 ### Menu
 
-Representa el catálogo de productos disponibles.
+Represents the restaurant's product catalog.
 
-Su responsabilidad consiste en almacenar los productos del restaurante y permitir su consulta por nombre, evitando que otras clases conozcan cómo se gestionan internamente.
+Its responsibility is to store the available products and provide product lookup by name, hiding its internal implementation from the rest of the system.
 
 ---
 
 ### Order
 
-Representa un pedido realizado por un cliente.
+Represents a customer's order.
 
-Es responsable de administrar los productos que contiene, calcular el precio total, confirmar o cancelar el pedido y garantizar que las reglas de negocio se cumplan durante todo su ciclo de vida.
+It is responsible for managing its products, calculating the total price, confirming or canceling the order, and enforcing all business rules throughout its lifecycle.
 
-Entre dichas reglas se encuentra impedir cualquier modificación una vez que el pedido ha sido confirmado.
+One of these rules is preventing any modification after an order has been confirmed.
 
 ---
 
 ### OrderManager
 
-Representa el conjunto de pedidos registrados por el sistema.
+Represents the collection of orders managed by the system.
 
-Su responsabilidad consiste en almacenar los pedidos, registrarlos y permitir su consulta mediante su identificador.
-
----
-
-## Principales decisiones de diseño
-
-Durante el desarrollo del proyecto se tomaron las siguientes decisiones:
-
-* `Menu` recibe la colección de productos desde `main.py`, evitando que la clase sea responsable de crearlos.
-* `Order` genera automáticamente su propio identificador mediante una variable de clase, garantizando que cada pedido posea un ID único.
-* `OrderManager` devuelve objetos `Order` en lugar de representaciones en texto, permitiendo que otras partes del sistema decidan cómo utilizar cada pedido.
-* `main.py` actúa únicamente como orquestador de la aplicación, coordinando la interacción entre las entidades sin contener lógica de negocio.
-* Las reglas de negocio se implementan dentro de las entidades responsables y no en la capa de presentación.
+Its responsibility is to register, store, and retrieve orders by their identifier.
 
 ---
 
-## Principios aplicados
+## Main Design Decisions
 
-Durante el desarrollo se aplicaron los siguientes principios y buenas prácticas:
+The following design decisions were made during development:
 
-* Encapsulamiento.
-* Responsabilidad Única (Single Responsibility Principle).
-* Separación de responsabilidades.
-* Desarrollo incremental mediante pequeños cambios.
-* Refactorización guiada por las reglas del dominio.
-* Uso de excepciones para comunicar errores de negocio.
-
----
-
-## Posibles mejoras futuras
-
-Este proyecto fue desarrollado con un alcance intencionalmente reducido para practicar Programación Orientada a Objetos. Algunas mejoras que podrían incorporarse en versiones futuras son:
-
-* Reemplazar los estados del pedido por un `Enum`.
-* Incorporar persistencia de datos mediante archivos o una base de datos.
-* Agregar pruebas unitarias para validar el comportamiento de las entidades.
-* Exponer la lógica del dominio mediante una API REST.
-* Incorporar una interfaz gráfica o una interfaz web como capa de presentación.
+* `Menu` receives the collection of products from `main.py` instead of creating them internally.
+* `Order` generates its own identifier using a class variable, ensuring every order has a unique ID.
+* `OrderManager` returns `Order` objects instead of text representations, allowing the caller to decide how to use or display them.
+* `main.py` acts exclusively as the application's orchestrator and contains no business logic.
+* Business rules are enforced inside the domain entities rather than in the presentation layer.
 
 ---
 
-## Conclusión
+## Principles Applied
 
-Este proyecto permitió practicar el desarrollo de software desde una perspectiva orientada al dominio, priorizando el diseño antes que la implementación.
+The project was developed following these software design principles:
 
-Además de reforzar conceptos de Programación Orientada a Objetos en Python, el desarrollo se realizó siguiendo un flujo de trabajo similar al de un entorno profesional, utilizando Git, ramas por funcionalidad, commits descriptivos, revisiones de código y refactorizaciones incrementales.
+* Encapsulation
+* Single Responsibility Principle (SRP)
+* Separation of Responsibilities
+* Incremental Development
+* Domain-Driven Refactoring
+* Exception-Based Business Rule Validation
+
+---
+
+## Future Improvements
+
+The project intentionally keeps a limited scope to focus on Object-Oriented Programming. Possible future improvements include:
+
+* Replace order states with an `Enum`.
+* Add data persistence using files or a database.
+* Implement unit tests.
+* Expose the domain through a REST API.
+* Build a graphical or web-based user interface.
+
+---
+
+## Conclusion
+
+This project was designed to practice software development from a domain-oriented perspective, prioritizing design before implementation.
+
+In addition to strengthening Object-Oriented Programming skills in Python, the project followed a workflow inspired by professional software development, including Git branching, descriptive commits, code reviews, and incremental refactoring.
