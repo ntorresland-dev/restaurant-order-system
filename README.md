@@ -44,12 +44,24 @@ The current version allows you to:
 ├── .gitignore
 ├── README.md
 ├── main.py
+├── docs
+│   ├── CHANGELOG.md
+│   └── design.md
 └── src
     ├── menu.py
     ├── order.py
     ├── order_manager.py
     └── product.py
 ```
+
+---
+
+## Documentation
+
+Additional project documentation is available in the `docs/` directory:
+
+* **`docs/design.md`** – Explains the main architectural and design decisions made throughout the project.
+* **`docs/CHANGELOG.md`** – Tracks notable changes introduced in each project release.
 
 ---
 
