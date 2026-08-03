@@ -38,6 +38,6 @@ class Order:
         return ("Pedido\n"
                 "Productos:\n"
                 f"{products}\n"
-                f"Precio Total: {self.get_total_price()}\n"
+                f"Precio Total: ${self.get_total_price()}\n"
                 f"Estado del pedido: {self.__state}"
         )
